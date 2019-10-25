@@ -21,28 +21,17 @@ Requirements
 
   * libcurl devel for msvc <http://curl.haxx.se/latest.cgi?curl=win32-ssl-devel-msvc>
   * working ocaml/msvc setup (ocaml and msvc tools in PATH)
-  * ocamlfind
   * GNU make
 
 Build
 -----
 
-Edit `Makefile.msvc` and make CURLDIR variable point
-to the root directory of libcurl installation.
-Copy `config.h.windows` to `config.h`.
-
-Compile with `make -f Makefile.msvc`.
-Install with `make -f Makefile.msvc install`.
-Compile examples with `make -f Makefile.msvc examples`.
 
 Making release
 ==============
 
 * Update CHANGES.txt
-* Update version in configure.ac
-* autoreconf
 * commit
-* ./configure && make release
 
 ----
  ygrek at autistici dot org

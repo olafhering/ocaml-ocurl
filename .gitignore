@@ -8,9 +8,6 @@
 *.dll
 *.so
 *.exe
-config.*
-.depend
-Makefile
 examples/Makefile
 examples/*.opt
 examples/opar
@@ -27,4 +24,3 @@ examples/test_memory_leaks
 examples/test_unit
 /doc
 /print_ext
-/autom4te.cache
