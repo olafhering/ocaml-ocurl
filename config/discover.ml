@@ -1,7 +1,10 @@
 module C = Configurator.V1
 
-let curl_api_access = "curl/curl.h"
-let curl_api_list = [
+let includes = {|
+#include <curl/curl.h>
+|}
+
+let declarations = [
 "CURLOPT_FILE";
 "CURLOPT_URL";
 "CURLOPT_PORT";
@@ -311,15 +314,15 @@ let conf =
   in
 
 let config_h =
-  let ac_fn_c_check_decl s =
+  let ac_fn_c_check_decl includes s =
     let c_code = Printf.sprintf {|
-      #include <%s>
+      %s
       int main(){
       #ifndef %s
       (void) %s;
       #endif
       return 0;}
-      |} curl_api_access s s
+      |} includes s s
       in
     let define = Printf.sprintf "HAVE_DECL_%s" s in
     let value = match C.c_test c ~c_flags:conf.cflags ~link_flags:conf.libs c_code with
@@ -328,7 +331,7 @@ let config_h =
       in
     define , value;
     in
-  List.rev_map (ac_fn_c_check_decl) curl_api_list
+  List.rev_map (ac_fn_c_check_decl includes) declarations
   in
 
   C.C_define.gen_header_file c ~fname:"curl-helper.h" config_h;
