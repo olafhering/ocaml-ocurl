@@ -1,0 +1,23 @@
+(library
+ (name curl)
+ (public_name ocurl)
+ (synopsis "Bindings to libcurl")
+ (modules curl)
+ (libraries)
+ (c_names curl-helper)
+ (c_flags
+  (:include c_flags.sexp))
+ (c_library_flags
+  (:include c_library_flags.sexp)))
+
+(library
+ (name curl_lwt)
+ (modules curl_lwt)
+ (libraries curl lwt))
+
+(rule
+ (targets c_flags.sexp c_library_flags.sexp curl-helper.h)
+ (deps
+  (:discover config/discover.exe))
+ (action
+  (run %{discover})))
