@@ -17,7 +17,7 @@
  (github ygrek/ocurl))
 
 (package
- (name ocurl)
+ (name curl)
  (synopsis "Bindings to libcurl")
  (description
    "Client-side URL transfer library, supporting HTTP and a multitude of other network protocols (FTP/SMTP/RTSP/etc).")

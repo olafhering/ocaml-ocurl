@@ -1,6 +1,6 @@
 (library
  (name curl)
- (public_name ocurl)
+ (public_name curl)
  (synopsis "Bindings to libcurl")
  (modules curl)
  (libraries)
