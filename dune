@@ -10,10 +10,11 @@
  (c_library_flags
   (:include c_library_flags.sexp)))
 
-(library
- (name curl_lwt)
- (modules curl_lwt)
- (libraries curl lwt))
+;(library
+; (name curl_lwt)
+; (public_name curl.lwt)
+; (modules curl_lwt)
+; (libraries curl lwt))
 
 (rule
  (targets c_flags.sexp c_library_flags.sexp curl-helper.h)
