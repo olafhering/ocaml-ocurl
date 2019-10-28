@@ -4,7 +4,7 @@ let includes = {|
 #include <curl/curl.h>
 |}
 
-let declarations = [
+let declarations_optional = [
 "CURLOPT_FILE";
 "CURLOPT_URL";
 "CURLOPT_PORT";
@@ -331,7 +331,7 @@ let config_h =
       in
     define , value;
     in
-  List.rev_map (ac_fn_c_check_decl includes) declarations
+  List.rev_map (ac_fn_c_check_decl includes) declarations_optional
   in
 
   C.C_define.gen_header_file c ~fname:"curl-helper.h" config_h;
