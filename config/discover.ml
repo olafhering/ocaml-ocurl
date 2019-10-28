@@ -308,9 +308,9 @@ let conf =
   match C.Pkg_config.get c with
   | None -> no_pkgconfig
   | Some pc ->
-      match C.Pkg_config.query pc ~package:"libcurl" with
-        | None -> C.die "The required version of 'libcurl' was not found"
-        | Some deps -> deps
+     match C.Pkg_config.query_expr_err pc ~package:"libcurl" ~expr:"libcurl >= 7.28.0" with
+       | Ok c ->  c
+       | Error err -> C.die "%s" err
   in
 
 let config_h =
