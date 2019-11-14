@@ -1,0 +1,55 @@
+(executable
+ (public_name ocaml-ocurl-ocurl)
+ (name ocurl)
+ (modules ocurl)
+ (libraries curl)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-ominimal)
+ (name ominimal)
+ (modules ominimal)
+ (libraries curl)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-ossl)
+ (name ossl)
+ (modules ossl)
+ (libraries curl)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-ocurl_test_threads)
+ (name ocurl_test_threads)
+ (modules ocurl_test_threads)
+ (libraries curl threads)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-opar)
+ (name opar)
+ (modules opar)
+ (libraries curl threads)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-test_cb_exn)
+ (name test_cb_exn)
+ (modules test_cb_exn)
+ (libraries curl)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-test_memory_leaks)
+ (name test_memory_leaks)
+ (modules test_memory_leaks)
+ (libraries curl)
+ (package curl-examples))
+
+(executable
+ (public_name ocaml-ocurl-test_enum)
+ (name test_enum)
+ (modules test_enum)
+ (libraries curl)
+ (package curl-examples))
