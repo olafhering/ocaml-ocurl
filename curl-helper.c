@@ -33,11 +33,7 @@
 #define CAMLdrop caml_local_roots = caml__frame
 #endif
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#else
-#pragma message("No config file given.")
-#endif
+#include "curl-helper.h"
 
 #ifdef __cplusplus
 extern "C" {

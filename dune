@@ -1,0 +1,26 @@
+(library
+ (name curl)
+ (public_name curl)
+ (synopsis "bindings to libcurl")
+ (modules curl)
+ (libraries unix)
+ (c_names curl-helper)
+ (c_flags
+  (:include c_flags.sexp))
+ (c_library_flags
+  (:include c_library_flags.sexp)))
+
+(library
+ (name curl_lwt)
+ (public_name curl.lwt)
+ (synopsis "lwt interface to libcurl")
+ (modules curl_lwt)
+ (optional)
+ (libraries curl lwt.unix))
+
+(rule
+ (targets c_flags.sexp c_library_flags.sexp curl-helper.h)
+ (deps
+  (:discover config/discover.exe))
+ (action
+  (run %{discover})))
