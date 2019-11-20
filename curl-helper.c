@@ -9,7 +9,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <caml/config.h>
 #ifdef HAS_UNISTD
 #include <unistd.h>
 #endif
